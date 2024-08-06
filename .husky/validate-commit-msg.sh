@@ -11,6 +11,12 @@ if ! echo "$commit_msg" | grep -Eq '^(\w+)\(\w+#\d+\): .+$'; then
   exit 1
 fi
 
+# Verificar si falta el carácter ":"
+if ! echo "$commit_msg" | grep -q ":"; then
+  echo "Error: Falta el carácter ':'."
+  exit 1
+fi
+
 # Extraer el número del commit usando una expresión regular
 commit_number=$(echo "$commit_msg" | grep -Eo '#\d+' | tr -d '#')
 echo "Número de commit: $commit_number"

@@ -1,4 +1,12 @@
-#!/usr/bin/env sh
-. "$(dirname "$0")/husky.sh"
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
 
-pnpm exec commitlint --edit "$1"
+echo "Ejecutando commit-msg hook"
+
+# Llamar al script de validación del mensaje de commit
+if ! .husky/validate-commit-msg.sh "$1"; then
+  echo "Validación del mensaje de commit falló"
+  exit 1
+fi
+
+echo "Commit-msg hook finalizado con éxito"

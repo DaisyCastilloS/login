@@ -4,6 +4,7 @@ pnpm-lock.yaml
 pnpm-lock.json
 request.http
 .log
+coverage
 
 ### macOS ###
 # General
