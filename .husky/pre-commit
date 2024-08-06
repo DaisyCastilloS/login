@@ -1,0 +1,21 @@
+#!/bin/sh
+. "$(dirname "$0")/husky.sh"
+
+echo "Ejecutando pre-commit hook"
+
+# Validar el mensaje de commit
+echo "Llamando al script de validación del mensaje de commit"
+if ! .husky/validate-commit-msg.sh .git/COMMIT_EDITMSG; then
+  echo "Validación del mensaje de commit falló"
+  exit 1
+fi
+
+# # Paso 3: Corriendo pruebas
+# echo "Paso 3: Corriendo pnpm test"
+# if ! pnpm test; then
+#   echo "Error: Las pruebas han fallado"
+#   exit 1
+# fi
+
+echo "Pre-commit hook finalizado con éxito"
+
