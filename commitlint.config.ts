@@ -12,3 +12,4 @@ module.exports = {
     'subject-case': [2, 'always', 'sentence-case'],
   },
 };
+onabort
