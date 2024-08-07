@@ -11,12 +11,6 @@ if ! echo "$commit_msg" | grep -Eq '^(\w+)\(\w+#\d+\): .+$'; then
   exit 1
 fi
 
-# Verificar si falta el carácter ":"
-if ! echo "$commit_msg" | grep -q ":"; then
-  echo "Error: Falta el carácter ':'."
-  exit 1
-fi
-
 # Extraer el número del commit usando una expresión regular
 commit_number=$(echo "$commit_msg" | grep -Eo '#\d+' | tr -d '#')
 echo "Número de commit: $commit_number"
@@ -26,7 +20,8 @@ echo "Verificando si el número de commit ya ha sido utilizado en el historial d
 matching_commits=$(git log --oneline --grep="#$commit_number")
 echo "Commits coincidentes: $matching_commits"
 
-if [ -n "$matching_commits" ]; entonces echo "Error: El número de commit #$commit_number ya ha sido utilizado."
+if [ -n "$matching_commits" ]; then
+  echo "Error: El número de commit #$commit_number ya ha sido utilizado."
   exit 1
 fi
 
