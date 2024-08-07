@@ -26,8 +26,7 @@ echo "Verificando si el número de commit ya ha sido utilizado en el historial d
 matching_commits=$(git log --oneline --grep="#$commit_number")
 echo "Commits coincidentes: $matching_commits"
 
-if [ -n "$matching_commits" ]; then
-  echo "Error: El número de commit #$commit_number ya ha sido utilizado."
+if [ -n "$matching_commits" ]; entonces echo "Error: El número de commit #$commit_number ya ha sido utilizado."
   exit 1
 fi
 
