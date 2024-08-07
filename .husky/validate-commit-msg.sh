@@ -26,3 +26,4 @@ if [ -n "$matching_commits" ]; then
 fi
 
 echo "Validación del número de commit completada con éxito"
+log
