@@ -1,10 +1,9 @@
 #!/bin/sh
-. "$(dirname "$0")/_/husky.sh"
 
 echo "Ejecutando commit-msg hook"
 
 # Llamar al script de validación del mensaje de commit
-if ! .husky/validate-commit-msg.sh "$1"; then
+if ! sh .husky/validate-commit-msg.sh "$1"; then
   echo "Validación del mensaje de commit falló"
   exit 1
 fi

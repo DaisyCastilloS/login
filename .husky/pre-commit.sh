@@ -1,10 +1,11 @@
-
+#!/bin/sh
 
 echo "Ejecutando pre-commit hook"
 
 # Aquí se pueden agregar otras validaciones, como ejecutar pruebas
 # echo "Paso 1: Corriendo pnpm test"
-# if ! pnpm test; entonces echo "Error: Las pruebas han fallado"
+# if ! pnpm test; then
+#   echo "Error: Las pruebas han fallado"
 #   exit 1
 # fi
 
